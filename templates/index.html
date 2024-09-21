@@ -6,7 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Input Form</title>
+    <title>Chatbot</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 
@@ -14,9 +14,9 @@
     <h1>Upload an Image</h1>
     <form method="POST" enctype="multipart/form-data" action="">
         <input id="file-input" name="files" type="file" placeholder="Upload">
-        <input id="user_input" name="user_input" type="text" placeholder="What do you want to know about the image?">
-        <div id="container">
-            <button type="submit" value="Submit"> Submit </button>
+        <input id="user-input" name="user_input" type="text" placeholder="What do you want to know about the image?">
+        <div id="info-container">
+            <button id="submit-button" type="submit" value="Submit"> Submit </button>
         </div>
     </form>
 </body>
