@@ -6,6 +6,7 @@ import PIL.Image
 # Load .env file
 load_dotenv()
 
+# get api key and invoke model
 api_key = os.getenv('API_KEY')
 genai.configure(api_key=api_key)
 model = genai.GenerativeModel("gemini-1.5-flash")
@@ -18,7 +19,11 @@ model = genai.GenerativeModel("gemini-1.5-flash")
 #     return response.text
 
 def get_response_from_picture(picture_file, text):
-    file = PIL.Image.open(picture_file)
-    result = model.generate_content([text, file], tools=['code_execution'])
-    return result.text
+    if bool(picture_file) == False:
+        result = model.generate_content([text], tools=['code_execution'])
+        return result.text
+    else:
+        file = PIL.Image.open(picture_file)
+        result = model.generate_content([text, file], tools=['code_execution'])
+        return result.text
 
