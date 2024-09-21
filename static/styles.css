@@ -82,7 +82,8 @@ button:hover {
     opacity: 0.8; 
 } 
 
-pre {
+
+p {
     white-space: pre-wrap;
     position: relative;
     line-height: 1.5;
@@ -92,26 +93,6 @@ pre {
     border-radius: 8px;
     background-color: #f9f9f9;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    font-family: 'Arial', sans-serif;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 500;
 }
-
-code {
-    font-size: 14px;            
-    color: #333;         
-}
-
-
-
-
-/* p {
-    white-space: pre-wrap;
-    position: relative;
-    line-height: 1.5;
-    padding: 12px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    background-color: #f9f9f9;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    font-family: 'Arial', sans-serif;
-} */
