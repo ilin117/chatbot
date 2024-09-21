@@ -7,6 +7,7 @@ app = Flask(__name__, static_url_path='/static')
 def index():
     if request.method == 'POST':
         user_text = request.form.get('user_input')
+        # if no picture is uploaded, only send in text
         if bool(request.files['files']) == False:
             message = get_response_from_picture(False, user_text)
         else:

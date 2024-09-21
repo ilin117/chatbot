@@ -10,20 +10,21 @@ load_dotenv()
 api_key = os.getenv('API_KEY')
 genai.configure(api_key=api_key)
 model = genai.GenerativeModel("gemini-1.5-flash")
+chat = model.start_chat()
 
-# def get_response(user_input: str):
-#     try:
-#         response = model.generate_content(user_input)
-#     except UnboundLocalError and TypeError:
-#         response = model.generate_content("Say 'Say something to me!'")
-#     return response.text
+# saves chat history
+def get_chat_response(chat: genai.ChatSession, prompt) -> str:
+    text_response = []
+    responses = chat.send_message(prompt, stream=True, tools=['code_execution'])
+    for chunk in responses:
+        text_response.append(chunk.text)
+    return "".join(text_response)
 
 def get_response_from_picture(picture_file, text):
+    # if no picture is uploaded, only send in text
     if bool(picture_file) == False:
-        result = model.generate_content([text], tools=['code_execution'])
-        return result.text
+        return get_chat_response(chat, [text])
     else:
         file = PIL.Image.open(picture_file)
-        result = model.generate_content([text, file], tools=['code_execution'])
-        return result.text
+        return get_chat_response(chat, [text, file])
 
