@@ -21,7 +21,7 @@ form {
     margin: 0 auto;
   }
   
-/* Style the heading */
+
 h1 {
     text-align: center;
     font-family: 'Helvetica', sans-serif;
@@ -30,7 +30,6 @@ h1 {
     margin-bottom: 20px;
   }
   
-/* Center and style text input */
 input[type="text"], input[type="file"] {
     width: 100%;
     padding: 12px 15px;
@@ -48,7 +47,6 @@ input[type="text"]:focus, input[type="file"]:focus {
     outline: none;
   }
   
-/* Style for the file input button */
 input[type="file"]::file-selector-button {
     padding: 10px 15px;
     background-color: #007bff;
@@ -84,10 +82,10 @@ button:hover {
     opacity: 0.8; 
 } 
 
-
-p {
+pre {
+    white-space: pre-wrap;
+    position: relative;
     line-height: 1.5;
-    width: 100%;
     padding: 12px;
     font-size: 16px;
     border: 1px solid #ccc;
@@ -96,11 +94,24 @@ p {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     font-family: 'Arial', sans-serif;
 }
-  
-p:focus {
-    outline: none;
-    border-color: #7289da; /* Discord's color scheme */
-    background-color: #fff;
+
+code {
+    font-size: 14px;             /* Adjust font size */
+    color: #333;                 /* Dark text color */
 }
-  
-  
+
+
+
+
+/* p {
+    white-space: pre-wrap;
+    position: relative;
+    line-height: 1.5;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-family: 'Arial', sans-serif;
+} */

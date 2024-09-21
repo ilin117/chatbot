@@ -6,7 +6,6 @@ import PIL.Image
 # Load .env file
 load_dotenv()
 
-# get api key and invoke model
 api_key = os.getenv('API_KEY')
 genai.configure(api_key=api_key)
 model = genai.GenerativeModel("gemini-1.5-flash")
