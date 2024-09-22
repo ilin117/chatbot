@@ -2,6 +2,7 @@ import google.generativeai as genai
 import os
 from dotenv import load_dotenv
 import PIL.Image
+from access_modifiers import privatemethod
 
 # Load .env file
 load_dotenv()
@@ -13,6 +14,7 @@ model = genai.GenerativeModel("gemini-1.5-flash")
 chat = model.start_chat()
 
 # saves chat history
+@privatemethod
 def get_chat_response(chat: genai.ChatSession, prompt) -> str:
     text_response = []
     responses = chat.send_message(prompt, stream=True, tools=['code_execution'])
