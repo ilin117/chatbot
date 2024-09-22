@@ -28,9 +28,3 @@ def get_response_from_picture(picture_file, text):
     else:
         file = PIL.Image.open(picture_file)
         return get_chat_response(chat, [text, file])
-    
-
-a = ''
-
-
-
