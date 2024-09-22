@@ -1,5 +1,6 @@
 from chatbot import get_response_from_picture
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, redirect, url_for
+from PIL import UnidentifiedImageError
 
 app = Flask(__name__, static_url_path='/static')
 
@@ -11,11 +12,18 @@ def index():
         if bool(request.files['files']) == False:
             message = get_response_from_picture(False, user_text)
         else:
-            picture = request.files['files']
-            message = get_response_from_picture(picture, user_text)
+            try:
+                picture = request.files['files']
+                message = get_response_from_picture(picture, user_text)
+            except UnidentifiedImageError:
+                return redirect(url_for('error'))
         return render_template('index.html', message=message)
     else:
         return render_template('index.html')
+    
+@app.route('/error')
+def error():
+    return render_template('error.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
