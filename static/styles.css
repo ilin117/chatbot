@@ -99,7 +99,3 @@ p#message {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     font-family: 'Courier New', Courier, monospace;
 }
-
-p {
-    width: 2px;
-}
