@@ -9,11 +9,11 @@ def index():
     if request.method == 'POST':
         user_text = request.form.get('user_input')
         # if no picture is uploaded, only send in text
-        if bool(request.files['files']) == False:
+        if bool(request.files['image']) == False:
             message = get_response_from_picture(False, user_text)
         else:
             try:
-                picture = request.files['files']
+                picture = request.files['image']
                 message = get_response_from_picture(picture, user_text)
             except UnidentifiedImageError:
                 return redirect(url_for('error'))
