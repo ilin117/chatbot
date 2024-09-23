@@ -88,6 +88,10 @@ button#submit-button:hover {
 }
 
 
+p:empty:not(:focus)::before {
+    content: attr(data-placeholder);
+}
+
 p#message {
     white-space: pre-wrap;
     position: relative;
